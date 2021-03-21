@@ -80,3 +80,45 @@ export default function App() {
   )
 }
 ```
+
+
+## Element Variables
+
+You can use `variables` to store `elements`. This can help you conditionally render a part of the component while the rest of the output doesn't change.
+
+Consider these two new components representing `Logout` and `Login` buttons:
+
+Login.js
+```js
+function Login(props) {
+  return (
+    <button onClick={props.onClick}>Login</button>
+  )
+}
+```
+
+Logout.js
+```js
+function Logout(props) {
+  return (
+    <button onClick={props.onClick}>Logout</button>
+  )
+}
+```
+
+in the example below we will create `stateful component` called `LoginControl`
+
+LoginControl.js (Class)
+```js
+import React, { useState } from 'react'
+import Login from './Login'
+import Logout from './Logout'
+
+class LoginControl extends Component {
+  constructor(props) {
+    super(props);
+    
+    
+  }
+}
+```
