@@ -188,3 +188,18 @@ render() {
   )
 }
 ```
+
+```js
+render() {
+  const isLoggedIn = this.state.isLoggedIn;
+  
+  return (
+    <div>
+      {isLoggedIn ?
+        <Logout /> :
+        <Login />
+      }
+    </div>
+  )
+}
+```
