@@ -173,3 +173,18 @@ function Main(props) {
   )
 }
 ```
+
+
+## Inline if else with conditional operator
+
+Another method for conditionally rendering elements inline is to use the JavaScript conditional operator `condition ? true : false`.
+
+```js
+render() {
+  const isLoggedIn = this.state.isLoggedIn;
+  
+  return (  
+    <h2>User is {isLoggedIn ? 'currently' : 'not'} logged in</h2>
+  )
+}
+```
