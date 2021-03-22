@@ -113,6 +113,7 @@ LoginControl.js (Class)
 import React, { useState } from 'react'
 import Login from './Login'
 import Logout from './Logout'
+import Greeting from './Greeting'
 
 class LoginControl extends Component {
   constructor(props) {
@@ -130,6 +131,25 @@ class LoginControl extends Component {
     this.setState({ isLoggedIn: true })
   }
   
+  handleLogoutClick() {
+    this.setState({ isLoggedIn: false })
+  }
   
+  render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+    if (isLoggedIn) {
+      button = <Logout onClick={this.handleLogoutClick} />
+    } else {
+      button = <Login onClick={this.handleLoginClick} />
+    }
+    
+    return (
+      <div>
+        <Greeting isLoggedIn={isLoggedIn} />
+        {button}
+      </div>
+    )
+  }
 }
 ```
