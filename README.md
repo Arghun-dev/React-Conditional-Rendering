@@ -153,3 +153,23 @@ class LoginControl extends Component {
   }
 }
 ```
+
+
+## Inline if with Logical && Operator
+
+```js
+function Main(props) {
+  const { unreadMessages } = props;
+  
+  return (
+    <div>
+      <h1>Hello!</h1>
+      {unreadMessages.length > 0 && 
+        <h2>
+          You have {unreadMessages.length} unread messages!
+        </h2>
+      }
+    </div>
+  )
+}
+```
