@@ -203,3 +203,57 @@ render() {
   )
 }
 ```
+
+
+## Preventing Component from Rendering
+
+In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return null instead of its render output.
+
+In the example below, the `<WarningBanner />` is rendered depending on the value of the prop called warn. If the value of the prop is false, then the component does not render:
+
+```js
+function WarningBanner(props) {
+  const warn = props.warn;
+  
+  if (!warn) {
+    return null
+  }
+  
+  return (
+    <div>
+      Warning!
+    </div>
+  )
+}
+
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      showWarning: false;
+    }
+    
+    this.handleToggleWarning = this.handleToggleWarning.bind(this);
+  }
+  
+  handleToggleWarning() {
+    this.setState((state) => ({
+      showWarning: !state.showWarning
+    }))
+  }
+  
+  render() {
+    const showWarning = this.state.showWarning;
+    
+    return (
+      <div>
+        <WarningBanner warn={showWarning} />
+        <button onClick={this.handleToggleWarning}>
+          {this.state.showWarning ? 'Hide' : 'Show'}
+        </button>
+      </div>
+    )
+  }
+}
+```
